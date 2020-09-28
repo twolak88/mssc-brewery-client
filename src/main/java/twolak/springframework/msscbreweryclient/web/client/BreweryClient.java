@@ -1,5 +1,6 @@
 package twolak.springframework.msscbreweryclient.web.client;
 
+import java.net.URI;
 import java.util.UUID;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -26,6 +27,10 @@ public class BreweryClient {
     
     public BeerDto getBeerById(UUID beerId) {
         return this.restTemplate.getForObject(this.apihost + BEER_PATH_V1 + beerId, BeerDto.class);
+    }
+    
+    public URI saveNewBeer(BeerDto beerDto) {
+        return this.restTemplate.postForLocation(this.apihost + BEER_PATH_V1, beerDto);
     }
     
     public void setApihost(String apihost) {
