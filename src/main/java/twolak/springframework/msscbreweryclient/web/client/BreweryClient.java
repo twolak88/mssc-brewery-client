@@ -11,12 +11,12 @@ import twolak.springframework.msscbreweryclient.web.model.BeerDto;
  *
  * @author twolak
  */
-@Component
 @ConfigurationProperties(value = "tw.brewery", ignoreUnknownFields = false)
+@Component
 public class BreweryClient {
     
     public static final String BEER_PATH_V1 = "/api/v1/beer/";
-    private String apiHost;
+    private String apihost;
     
     private final RestTemplate restTemplate;
 
@@ -25,10 +25,10 @@ public class BreweryClient {
     }
     
     public BeerDto getBeerById(UUID beerId) {
-        return this.restTemplate.getForObject(this.apiHost + BEER_PATH_V1 + beerId, BeerDto.class);
+        return this.restTemplate.getForObject(this.apihost + BEER_PATH_V1 + beerId, BeerDto.class);
     }
     
-    public void setApiHost(String apiHost) {
-        this.apiHost = apiHost;
+    public void setApihost(String apihost) {
+        this.apihost = apihost;
     }
 }
