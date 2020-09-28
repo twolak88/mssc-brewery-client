@@ -33,4 +33,10 @@ public class BreweryClientIT {
         URI uri = this.breweryClient.saveNewBeer(beerDto);
         assertNotNull(uri);
     }
+
+    @Test
+    public void testUpdateBeer() {
+        BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+        this.breweryClient.updateBeer(UUID.randomUUID(), beerDto);
+    }
 }
